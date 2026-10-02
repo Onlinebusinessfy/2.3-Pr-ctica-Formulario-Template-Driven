@@ -1,0 +1,87 @@
+<div class="formulario-container">
+
+  <h1>Registro de usuario</h1>
+
+  <form (ngSubmit)="registrar()">
+
+    <label for="nombre">Nombre completo:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="nombreCompleto"
+    >
+
+    <label for="correo">Correo electrónico:</label>
+    <input
+      type="email"
+      id="correo"
+      name="correo"
+      [(ngModel)]="correo"
+    >
+
+    <label for="telefono">Teléfono:</label>
+    <input
+      type="tel"
+      id="telefono"
+      name="telefono"
+      [(ngModel)]="telefono"
+    >
+
+    <label for="edad">Edad:</label>
+    <input
+      type="number"
+      id="edad"
+      name="edad"
+      [(ngModel)]="edad"
+    >
+
+    <label for="contrasena">Contraseña:</label>
+    <input
+      type="password"
+      id="contrasena"
+      name="contrasena"
+      [(ngModel)]="contrasena"
+    >
+
+    <label for="confirmarContrasena">Confirmar contraseña:</label>
+    <input
+      type="password"
+      id="confirmarContrasena"
+      name="confirmarContrasena"
+      [(ngModel)]="confirmarContrasena"
+    >
+
+    <button type="submit">Registrar</button>
+
+  </form>
+
+  @if (registros.length > 0) {
+
+    <div class="resultado">
+
+    <h2>Personas registradas</h2>
+
+        @for (registro of registros; track $index) {
+
+        <div class="registro-persona">
+
+            <p><strong>Nombre completo:</strong> {{ registro.nombreCompleto }}</p>
+
+            <p><strong>Correo electrónico:</strong> {{ registro.correo }}</p>
+
+            <p><strong>Teléfono:</strong> {{ registro.telefono }}</p>
+
+            <p><strong>Edad:</strong> {{ registro.edad }}</p>
+
+            <p><strong>Contraseña:</strong> ********</p>
+
+        </div>
+
+        }
+
+    </div>
+
+}
+
+</div>
